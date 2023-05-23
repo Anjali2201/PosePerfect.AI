@@ -2,15 +2,13 @@ import * as poseDetection from "@tensorflow-models/pose-detection";
 import * as tf from "@tensorflow/tfjs";
 import React, { useRef, useState, useEffect } from "react";
 import Webcam from "react-webcam";
-import { count } from "../../utils/music";
-import Instructions from "../../components/Instructions.jsx";
-import "./Yoga.css";
-import Navbar from "../../components/navbar.jsx";
-import DropDown from "../../components/DropDown/DropDown.jsx";
-import { poseImages } from "../../utils/pose_images";
-import { POINTS, keypointConnections } from "../../utils/data";
-import { drawPoint, drawSegment } from "../../utils/helper";
-import { Grid } from "@mui/material";
+import { count } from "../utils/music";
+import Instructions from "./Instructions.jsx";
+import { poseImages } from "../utils/pose_images";
+import { POINTS, keypointConnections } from "../utils/data";
+import { drawPoint, drawSegment } from "../utils/helper";
+import { Grid, Typography } from "@mui/material";
+import DropDown from "./dropDown";
 
 let skeletonColor = "rgb(255,255,255)";
 let poseList = [
@@ -231,16 +229,25 @@ function Yoga() {
 
   if (isStartPose) {
     return (
-      <div className="yoga-container">
-        <div className="performance-container">
-          <div className="pose-performance">
-            <h4>Pose Time: {poseTime} s</h4>
-          </div>
-          <div className="pose-performance">
-            <h4>Best: {bestPerform} s</h4>
-          </div>
-        </div>
-        <div>
+      <Grid
+        container
+        sx={{
+          height: "100vh",
+          justifyContent: "center",
+          alignItems: "center",
+          p: 5,
+        }}
+      >
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            border: "1px solid black",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Webcam
             width="640px"
             height="480px"
@@ -265,18 +272,40 @@ function Yoga() {
               zIndex: 1,
             }}
           ></canvas>
-          <div>
-            <img
-              src={poseImages[currentPose]}
-              className="pose-img"
-              alt="demoimage"
-            />
-          </div>
-        </div>
-        <button onClick={stopPose} className="secondary-btn">
-          Stop Pose
-        </button>
-      </div>
+        </Grid>
+
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            justifyContent: "center",
+            alignItems: "center",
+            border: "1px solid black",
+          }}
+        >
+          <Typography variant="h4" sx={{ textAlign: "center" }}>
+            Current Pose: {poseList[currentPose]}
+          </Typography>
+          <Typography variant="h4" sx={{ textAlign: "center" }}>
+            Pose Time: {poseTime} s
+          </Typography>
+          <Typography variant="h4" sx={{ textAlign: "center" }}>
+            Best: {bestPerform} s
+          </Typography>
+
+          <img
+            src={poseImages[currentPose]}
+            alt="demoimage"
+            height={300}
+            width={300}
+          />
+
+          <button onClick={stopPose} className="secondary-btn">
+            Stop Pose
+          </button>
+        </Grid>
+      </Grid>
     );
   }
 

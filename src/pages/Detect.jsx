@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/navbar";
-import Yoga from "../components/Yoga/Yoga";
+import Yoga from "../components/yoga";
 import Footer from "../components/footer";
 import { Grid } from "@mui/material";
 
