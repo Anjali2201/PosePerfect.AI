@@ -8,7 +8,6 @@ const Detect = () => {
   return (
     <Grid container>
       <Navbar />
-
       <Yoga />
       <Footer />
     </Grid>

@@ -9,6 +9,7 @@ import { POINTS, keypointConnections } from "../utils/data";
 import { drawPoint, drawSegment } from "../utils/helper";
 import { Grid, Typography } from "@mui/material";
 import DropDown from "./dropDown";
+import { Button } from "@mui/material";
 
 let skeletonColor = "rgb(255,255,255)";
 let poseList = [
@@ -325,9 +326,26 @@ function Yoga() {
         setCurrentPose={setCurrentPose}
       />
       <Instructions currentPose={currentPose} />
-      <button onClick={startYoga} className="secondary-btn">
+      <Button
+        onClick={startYoga}
+        variant="contained"
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          padding: "14px 34px",
+          gap: "7px",
+          mt: 3,
+          width: "190px",
+          height: "63px",
+          background: "#05422F",
+          borderRadius: "20px",
+          color: "#FFFFFF",
+          fontSize: "14px",
+          fontWeight: 700,
+        }}
+      >
         Start Pose
-      </button>
+      </Button>
     </Grid>
   );
 }

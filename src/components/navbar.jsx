@@ -65,7 +65,7 @@ const styles = {
   },
 };
 
-const buttons = ["About", "Detect", "Tutorials", "Contact"];
+const buttons = ["About", "Start", "Tutorials"];
 
 export default function Appbar(props) {
   const { window } = props;
