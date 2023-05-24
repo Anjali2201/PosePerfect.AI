@@ -39,6 +39,7 @@ function Yoga() {
   const [bestPerform, setBestPerform] = useState(0);
   const [currentPose, setCurrentPose] = useState("Tree");
   const [isStartPose, setIsStartPose] = useState(false);
+  const [jsonData, setJsonData] = useState(null);
 
   useEffect(() => {
     const timeDiff = (currentTime - startingTime) / 1000;
@@ -138,7 +139,7 @@ function Yoga() {
       detectorConfig
     );
     const poseClassifier = await tf.loadLayersModel(
-      "https://models.s3.jp-tok.cloud-object-storage.appdomain.cloud/model.json"
+      "https://storage.googleapis.com/model-bucket-pp/model.json"
     );
     const countAudio = new Audio(count);
     countAudio.loop = true;
