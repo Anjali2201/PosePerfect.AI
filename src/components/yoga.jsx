@@ -39,7 +39,6 @@ function Yoga() {
   const [bestPerform, setBestPerform] = useState(0);
   const [currentPose, setCurrentPose] = useState("Tree");
   const [isStartPose, setIsStartPose] = useState(false);
-  const [jsonData, setJsonData] = useState(null);
 
   useEffect(() => {
     const timeDiff = (currentTime - startingTime) / 1000;
