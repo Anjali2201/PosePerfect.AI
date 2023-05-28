@@ -138,7 +138,7 @@ function Yoga() {
       detectorConfig
     );
     const poseClassifier = await tf.loadLayersModel(
-      "https://storage.googleapis.com/model-bucket-pp/model.json"
+      "https://models.s3.jp-tok.cloud-object-storage.appdomain.cloud/model.json"
     );
     const countAudio = new Audio(count);
     countAudio.loop = true;
